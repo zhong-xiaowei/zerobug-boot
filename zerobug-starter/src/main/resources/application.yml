@@ -1,0 +1,95 @@
+server:
+  shutdown: GRACEFUL
+  # 服务器的HTTP端口，默认为8080
+  port: 8080
+  servlet:
+    encoding:
+      # 默认编码开启
+      enabled: true
+      # 编码类型 UTF-8
+      charset: UTF-8
+      # 强制编码
+      force: true
+    # 应用的访问路径
+    context-path: /
+  tomcat:
+    # tomcat的URI编码
+    uri-encoding: UTF-8
+    # tomcat最大线程数，默认为200
+    max-threads: 800
+    # Tomcat启动初始化的线程数，默认值25
+    min-spare-threads: 30
+
+spring:
+  application:
+    name: '@project.artifactId@'
+  profiles:
+    active: '@profiles.active@'
+  servlet:
+    # 文件上传相关配置项
+    multipart:
+      # 单个文件大小
+      max-file-size: 16MB
+      # 设置总上传的文件大小
+      max-request-size: 32MB
+  # Jackson 配置项
+  jackson:
+    serialization:
+      # 将data转换为时间戳
+      write-dates-as-timestamps: true
+      # 纳秒格式取消
+      write-date-timestamps-as-nanoseconds: false
+      # Duration 字段转换时间戳
+      write-durations-as-timestamps: true
+      # 空值不进行序列化
+      fail-on-empty-beans: false
+    default-property-inclusion: non_null
+    date-format: yyyy-MM-dd HH:mm:ss
+
+
+mybatis-plus:
+  # Mybatis的Mapper路径
+  mapperPackage: cn.com.zerobug.**.dao
+  # Mybatis的Xml路径
+  mapperLocations: classpath*:mapper/**/*Mapper.xml
+  # Mybatis的映射实体包路径
+  typeAliasesPackage: cn.com.zerobug.**.dataobject
+  # 开启对mybatis xml配置文件的存在检查
+  checkConfigLocation: false
+  # Mybatis的执行器的类型
+  executorType: SIMPLE
+  configuration:
+    # Mybatis一级缓存，默认为 SESSION
+    # SESSION session级别缓存，同一个session相同查询语句不会再次查询数据库
+    # STATEMENT 关闭一级缓存
+    localCacheScope: SESSION
+    # 开启Mybatis二级缓存，默认为 true
+    cacheEnabled: false
+    # 更详细的日志输出 会有性能损耗 org.apache.ibatis.logging.stdout.StdOutImpl
+    # 关闭日志记录 (可单纯使用 p6spy 分析) org.apache.ibatis.logging.nologging.NoLoggingImpl
+    # 默认日志输出 org.apache.ibatis.logging.slf4j.Slf4jImpl
+    logImpl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    # 是否打印 Logo banner
+    banner: false
+    # 是否初始化 SqlRunner
+    enable-sql-runner: false
+    # 全局的entity的逻辑删除字段属性名
+    logicDeleteField: is_delete
+    # 逻辑已删除值
+    logicDeleteValue: 1
+    # 逻辑未删除值
+    logicNotDeleteValue: 0
+
+zerobug:
+  # 全局配置开关
+  enableGlobalConfig: true
+  application-info:
+    # 应用名称
+    name: 'Zerobug-Boot-Starter'
+    # 应用版本
+    version: '@project.version@'
+    # 应用描述
+    description: '@project.description@'
+    # Springboot 版本
+    springbootVersion: '@spring.boot.version@'

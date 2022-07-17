@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.yungov.module.impl.system.dao.SysRoleMapper">
+
+    <resultMap id="BaseResultMap" type="cn.com.zerobug.module.impl.system.domain.dataobject.SysRoleDO">
+        <result column="id" property="id"/>
+        <result column="create_by" property="createBy"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_delete" property="isDelete"/>
+        <result column="name" property="name"/>
+        <result column="code" property="code"/>
+        <result column="sort" property="sort"/>
+        <result column="data_scope" property="dataScope"/>
+        <result column="data_scope_dept_ids" property="dataScopeDeptIds"/>
+        <result column="status" property="status"/>
+        <result column="type" property="type"/>
+        <result column="tenant_id" property="tenantId"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,code,
+        sort,data_scope,data_scope_dept_ids,
+        status,type,create_by,create_time,update_by,
+        update_time,is_delete
+    </sql>
+
+    <select id="selectByUserId" resultType="cn.com.zerobug.module.impl.system.domain.dataobject.SysRoleDO">
+        SELECT r.id,
+               r.name,
+               r.code,
+               r.sort,
+               r.data_scope,
+               r.data_scope_dept_ids,
+               r.status,
+               r.type,
+               r.create_by,
+               r.create_time,
+               r.update_by,
+               r.update_time,
+               r.is_delete
+        FROM sys_role r
+                 LEFT JOIN sys_user_role ur ON r.id = ur.role_id
+        WHERE r.is_delete = 0
+          AND r.status = 0
+          AND ur.user_id = #{userId}
+    </select>
+</mapper>

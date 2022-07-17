@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>zerobug-module-impl</artifactId>
+        <groupId>cn.com.zerobug</groupId>
+        <version>0.1.0-beta</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>module-impl-system</artifactId>
+
+    <dependencies>
+
+        <!-- springboot web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- JSR303 框架 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+        <!-- zerobug 日志组件 -->
+        <dependency>
+            <groupId>cn.com.zerobug</groupId>
+            <artifactId>component-log-starter</artifactId>
+        </dependency>
+
+        <!-- zerobug ORM组件 mybatis相关 -->
+        <dependency>
+            <groupId>cn.com.zerobug</groupId>
+            <artifactId>component-orm-starter</artifactId>
+        </dependency>
+
+        <!-- zerobug 缓存组件 -->
+        <dependency>
+            <groupId>cn.com.zerobug</groupId>
+            <artifactId>component-cache-starter</artifactId>
+        </dependency>
+
+        <!-- zerobug 过滤链组件 -->
+        <dependency>
+            <groupId>cn.com.zerobug</groupId>
+            <artifactId>component-filter-starter</artifactId>
+        </dependency>
+
+        <!-- zerobug 安全相关组件 -->
+        <dependency>
+            <groupId>cn.com.zerobug</groupId>
+            <artifactId>component-security-starter</artifactId>
+        </dependency>
+
+        <!-- 业务模块 -->
+
+        <dependency>
+            <groupId>cn.com.zerobug</groupId>
+            <artifactId>module-api-system</artifactId>
+        </dependency>
+
+    </dependencies>
+
+</project>

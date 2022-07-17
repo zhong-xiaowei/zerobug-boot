@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <include resource="logback/logback-default.xml"/>
+
+    <logger name="cn.com.zerobug.starter" additivity="true">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+</configuration>
