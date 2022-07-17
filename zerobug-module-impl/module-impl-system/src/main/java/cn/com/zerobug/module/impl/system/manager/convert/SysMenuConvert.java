@@ -1,8 +1,8 @@
 package cn.com.zerobug.module.impl.system.manager.convert;
 
 import cn.com.zerobug.module.impl.system.domain.dataobject.SysMenuDO;
-import cn.com.zerobug.module.impl.system.domain.vo.RouteMetaVO;
-import cn.com.zerobug.module.impl.system.domain.vo.RouterTreeVO;
+import cn.com.zerobug.module.impl.system.domain.vo.res.RouteMetaResVO;
+import cn.com.zerobug.module.impl.system.domain.vo.res.RouterTreeResVO;
 import cn.com.zerobug.module.impl.system.enums.SysMenuTypeEnum;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -31,7 +31,7 @@ public interface SysMenuConvert {
      * @return
      */
     @Mapping(target = "children", ignore = true)
-    RouterTreeVO convertRoutingTreeVO(SysMenuDO sysMenu);
+    RouterTreeResVO convertRoutingTreeVO(SysMenuDO sysMenu);
 
     /**
      * 转换路由树 VO List
@@ -39,10 +39,10 @@ public interface SysMenuConvert {
      * @param sysMenuList
      * @return
      */
-    default List<RouterTreeVO> convertRoutingTreeVOList(List<SysMenuDO> sysMenuList) {
+    default List<RouterTreeResVO> convertRoutingTreeVOList(List<SysMenuDO> sysMenuList) {
         return Optional.ofNullable(sysMenuList).orElse(new ArrayList<>())
                 .stream().map(item -> {
-                    RouterTreeVO routerTreeVO = convertRoutingTreeVO(item);
+                    RouterTreeResVO routerTreeVO = convertRoutingTreeVO(item);
                     routerTreeVO.setMeta(convertRouteMetaVO(item));
                     return routerTreeVO;
                 }).collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
@@ -54,8 +54,8 @@ public interface SysMenuConvert {
      * @param sysMenuDO
      * @return
      */
-    default RouteMetaVO convertRouteMetaVO(SysMenuDO sysMenuDO) {
-        RouteMetaVO routeMetaVO = new RouteMetaVO();
+    default RouteMetaResVO convertRouteMetaVO(SysMenuDO sysMenuDO) {
+        RouteMetaResVO routeMetaVO = new RouteMetaResVO();
         routeMetaVO.setOrderNo(sysMenuDO.getSort());
         routeMetaVO.setTitle(sysMenuDO.getName());
         routeMetaVO.setIcon(sysMenuDO.getIcon());

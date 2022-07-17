@@ -1,4 +1,4 @@
-package cn.com.zerobug.module.impl.system.domain.vo;
+package cn.com.zerobug.module.impl.system.domain.vo.res;
 
 import lombok.Data;
 
@@ -7,7 +7,7 @@ import lombok.Data;
  * @date 2022/4/9
  */
 @Data
-public class RouteMetaVO {
+public class RouteMetaResVO {
 
     /**
      * 标签

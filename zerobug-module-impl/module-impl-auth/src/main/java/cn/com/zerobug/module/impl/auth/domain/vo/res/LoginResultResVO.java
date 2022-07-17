@@ -1,4 +1,4 @@
-package cn.com.zerobug.module.impl.auth.domain.vo;
+package cn.com.zerobug.module.impl.auth.domain.vo.res;
 
 import lombok.Data;
 
@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @date 2022/3/13
  */
 @Data
-public class LoginResultVO implements Serializable {
+public class LoginResultResVO implements Serializable {
 
     private static final long serialVersionUID = -7879201240327635241L;
 

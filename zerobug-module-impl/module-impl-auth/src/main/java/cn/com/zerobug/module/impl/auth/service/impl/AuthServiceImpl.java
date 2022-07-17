@@ -1,13 +1,13 @@
 package cn.com.zerobug.module.impl.auth.service.impl;
 
-import cn.com.zerobug.module.impl.auth.domain.param.LoginActionParam;
+import cn.com.zerobug.module.impl.auth.domain.vo.req.LoginActionReqVO;
 import cn.com.zerobug.module.impl.auth.framework.security.SimpleUserdetailsServiceImpl;
 import cn.com.zerobug.module.impl.auth.service.IAuthService;
 import cn.com.zerobug.component.security.auth.MultipleLoginAuthenticationToken;
 import cn.com.zerobug.component.security.model.AuthenticatedUser;
 import cn.com.zerobug.component.security.token.AccessToken;
 import cn.com.zerobug.component.security.token.provider.SecurityTokenProvider;
-import cn.com.zerobug.module.impl.auth.domain.vo.LoginResultVO;
+import cn.com.zerobug.module.impl.auth.domain.vo.res.LoginResultResVO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -30,9 +30,9 @@ public class AuthServiceImpl implements IAuthService {
     private final SecurityTokenProvider securityTokenProvider;
 
     @Override
-    public LoginResultVO generateLoginResultVO(AuthenticatedUser authenticatedUser) {
-        AccessToken   accessToken   = securityTokenProvider.createAccessToken(authenticatedUser);
-        LoginResultVO loginResultVO = new LoginResultVO();
+    public LoginResultResVO generateLoginResultVO(AuthenticatedUser authenticatedUser) {
+        AccessToken      accessToken   = securityTokenProvider.createAccessToken(authenticatedUser);
+        LoginResultResVO loginResultVO = new LoginResultResVO();
         loginResultVO.setAccessToken(accessToken.getValue());
         loginResultVO.setRefreshToken(accessToken.getRefreshToken().getValue());
         loginResultVO.setExpiresIn(accessToken.getExpiration().getTime());
@@ -40,11 +40,11 @@ public class AuthServiceImpl implements IAuthService {
     }
 
     @Override
-    public AuthenticatedUser loginByUsernamePassword(LoginActionParam loginActionParam) {
+    public AuthenticatedUser loginByUsernamePassword(LoginActionReqVO loginActionReqVO) {
         MultipleLoginAuthenticationToken authenticationToken =
                 new MultipleLoginAuthenticationToken(
-                        loginActionParam.getUsername(),
-                        loginActionParam.getPassword(),
+                        loginActionReqVO.getUsername(),
+                        loginActionReqVO.getPassword(),
                         () -> SimpleUserdetailsServiceImpl.class
                 );
         Authentication authenticate = null;

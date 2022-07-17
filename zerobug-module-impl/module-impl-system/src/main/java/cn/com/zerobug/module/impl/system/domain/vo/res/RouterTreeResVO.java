@@ -1,4 +1,4 @@
-package cn.com.zerobug.module.impl.system.domain.vo;
+package cn.com.zerobug.module.impl.system.domain.vo.res;
 
 import cn.com.zerobug.common.base.dataobject.TreeNodeDO;
 import lombok.Data;
@@ -8,7 +8,7 @@ import lombok.Data;
  * @date 2022/3/25
  */
 @Data
-public class RouterTreeVO extends TreeNodeDO<RouterTreeVO> {
+public class RouterTreeResVO extends TreeNodeDO<RouterTreeResVO> {
 
     private static final long serialVersionUID = -5058326489560862193L;
 
@@ -31,10 +31,10 @@ public class RouterTreeVO extends TreeNodeDO<RouterTreeVO> {
     /**
      * 是否区分大小写
      */
-    private Boolean     caseSensitive;
+    private Boolean        caseSensitive;
     /**
      * 路由元数据
      */
-    private RouteMetaVO meta;
+    private RouteMetaResVO meta;
 
 }

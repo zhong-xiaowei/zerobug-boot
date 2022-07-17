@@ -1,4 +1,4 @@
-package cn.com.zerobug.module.impl.auth.domain.param;
+package cn.com.zerobug.module.impl.auth.domain.vo.req;
 
 import lombok.Data;
 
@@ -10,7 +10,7 @@ import java.io.Serializable;
  * @date 2022/3/13
  */
 @Data
-public class LoginActionParam implements Serializable {
+public class LoginActionReqVO implements Serializable {
 
     private static final long serialVersionUID = 5816460618596633773L;
 

@@ -1,4 +1,4 @@
-package cn.com.zerobug.module.impl.auth.domain.vo;
+package cn.com.zerobug.module.impl.auth.domain.vo.res;
 
 import cn.com.zerobug.module.api.system.dto.SysRoleDTO;
 import lombok.Data;
@@ -11,7 +11,7 @@ import java.util.List;
  * @date 2022/3/22
  */
 @Data
-public class SysUserInfoVO implements Serializable {
+public class SysUserInfoResVO implements Serializable {
 
     private static final long serialVersionUID = 6810970117102121236L;
 

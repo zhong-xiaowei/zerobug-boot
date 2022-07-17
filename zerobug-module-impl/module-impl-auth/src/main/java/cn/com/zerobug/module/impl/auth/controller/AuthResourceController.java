@@ -1,7 +1,7 @@
 package cn.com.zerobug.module.impl.auth.controller;
 
 import cn.com.zerobug.common.base.api.ApiResult;
-import cn.com.zerobug.module.impl.auth.domain.vo.SysUserInfoVO;
+import cn.com.zerobug.module.impl.auth.domain.vo.res.SysUserInfoResVO;
 import cn.com.zerobug.module.impl.auth.service.IAuthResourceService;
 import cn.com.zerobug.component.security.utils.SecurityContextUtils;
 import lombok.RequiredArgsConstructor;
@@ -30,7 +30,7 @@ public class AuthResourceController {
      * @return 用户信息
      */
     @GetMapping("/user-info")
-    public ApiResult<SysUserInfoVO> getUserInfo() {
+    public ApiResult<SysUserInfoResVO> getUserInfo() {
         return ApiResult.ok(authResourceService.getUserInfo(SecurityContextUtils.getLoginUserId()));
     }
 

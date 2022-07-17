@@ -1,8 +1,8 @@
 package cn.com.zerobug.module.impl.auth.service;
 
 import cn.com.zerobug.component.security.model.AuthenticatedUser;
-import cn.com.zerobug.module.impl.auth.domain.param.LoginActionParam;
-import cn.com.zerobug.module.impl.auth.domain.vo.LoginResultVO;
+import cn.com.zerobug.module.impl.auth.domain.vo.req.LoginActionReqVO;
+import cn.com.zerobug.module.impl.auth.domain.vo.res.LoginResultResVO;
 
 /**
  * 认证服务，做登录相关操作
@@ -18,14 +18,14 @@ public interface IAuthService {
      * @param authenticatedUser
      * @return
      */
-    LoginResultVO generateLoginResultVO(AuthenticatedUser authenticatedUser);
+    LoginResultResVO generateLoginResultVO(AuthenticatedUser authenticatedUser);
 
     /**
      * 用户名密码方式进行认证
      *
-     * @param loginActionParam
+     * @param loginActionReqVO
      * @return
      */
-    AuthenticatedUser loginByUsernamePassword(LoginActionParam loginActionParam);
+    AuthenticatedUser loginByUsernamePassword(LoginActionReqVO loginActionReqVO);
 
 }

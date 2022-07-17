@@ -1,7 +1,7 @@
 package cn.com.zerobug.module.impl.auth.manager.convert;
 
 import cn.com.zerobug.module.api.system.dto.SysUserDTO;
-import cn.com.zerobug.module.impl.auth.domain.vo.SysUserInfoVO;
+import cn.com.zerobug.module.impl.auth.domain.vo.res.SysUserInfoResVO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
@@ -20,6 +20,6 @@ public interface SysUserConvert {
      * @param sysUserDTO
      * @return
      */
-    SysUserInfoVO convertInfoVO(SysUserDTO sysUserDTO);
+    SysUserInfoResVO convertInfoVO(SysUserDTO sysUserDTO);
 
 }

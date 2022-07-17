@@ -1,8 +1,8 @@
 package cn.com.zerobug.module.impl.auth.controller;
 
 import cn.com.zerobug.common.base.api.ApiResult;
-import cn.com.zerobug.module.impl.auth.domain.param.LoginActionParam;
-import cn.com.zerobug.module.impl.auth.domain.vo.LoginResultVO;
+import cn.com.zerobug.module.impl.auth.domain.vo.req.LoginActionReqVO;
+import cn.com.zerobug.module.impl.auth.domain.vo.res.LoginResultResVO;
 import cn.com.zerobug.module.impl.auth.service.IAuthService;
 import cn.com.zerobug.component.security.model.AuthenticatedUser;
 import lombok.RequiredArgsConstructor;
@@ -28,12 +28,12 @@ public class AuthController {
     /**
      * 登录操作
      *
-     * @param loginActionParam
+     * @param loginActionReqVO
      * @return
      */
     @PostMapping("/login")
-    public ApiResult<LoginResultVO> loginAction(@RequestBody @Validated LoginActionParam loginActionParam) {
-        AuthenticatedUser authenticatedUser = authService.loginByUsernamePassword(loginActionParam);
+    public ApiResult<LoginResultResVO> loginAction(@RequestBody @Validated LoginActionReqVO loginActionReqVO) {
+        AuthenticatedUser authenticatedUser = authService.loginByUsernamePassword(loginActionReqVO);
         return ApiResult.ok(authService.generateLoginResultVO(authenticatedUser));
     }
 

@@ -1,6 +1,6 @@
 package cn.com.zerobug.module.impl.auth.service;
 
-import cn.com.zerobug.module.impl.auth.domain.vo.SysUserInfoVO;
+import cn.com.zerobug.module.impl.auth.domain.vo.res.SysUserInfoResVO;
 
 import java.util.Set;
 
@@ -16,7 +16,7 @@ public interface IAuthResourceService {
      * @param userId
      * @return
      */
-    SysUserInfoVO getUserInfo(Long userId);
+    SysUserInfoResVO getUserInfo(Long userId);
 
     /**
      * 获取用户权限

@@ -8,7 +8,7 @@ import cn.com.zerobug.common.base.dataobject.BaseDO;
 import cn.com.zerobug.common.base.dataobject.TreeNodeDO;
 import cn.com.zerobug.component.security.utils.SecurityContextUtils;
 import cn.com.zerobug.module.impl.system.domain.dataobject.SysMenuDO;
-import cn.com.zerobug.module.impl.system.domain.vo.RouterTreeVO;
+import cn.com.zerobug.module.impl.system.domain.vo.res.RouterTreeResVO;
 import cn.com.zerobug.module.impl.system.manager.convert.SysMenuConvert;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -49,9 +49,9 @@ public class SysMenuController {
      * @return ApiResult<SysMenuTreeVo>
      */
     @GetMapping("/routers")
-    public ApiResult<List<RouterTreeVO>> getMenuTree() {
-        List<SysMenuDO>    list = sysMenuService.getRoute(SecurityContextUtils.getLoginUserId());
-        List<RouterTreeVO> vo   = SysMenuConvert.INSTANCE.convertRoutingTreeVOList(list);
+    public ApiResult<List<RouterTreeResVO>> getMenuTree() {
+        List<SysMenuDO>       list = sysMenuService.getRoute(SecurityContextUtils.getLoginUserId());
+        List<RouterTreeResVO> vo   = SysMenuConvert.INSTANCE.convertRoutingTreeVOList(list);
         return ApiResult.ok(TreeNodeDO.buildTree(vo)
                 .stream()
                 .sorted(Comparator.comparing(o -> o.getMeta().getOrderNo()))
@@ -65,9 +65,9 @@ public class SysMenuController {
      * @param parentId  父节点id
      * @return List<TreeNodeDO>
      */
-    private List<RouterTreeVO> buildTree(List<RouterTreeVO> treeNodes, Long parentId) {
-        List<RouterTreeVO> trees = new ArrayList<>();
-        for (RouterTreeVO treeNode : treeNodes) {
+    private List<RouterTreeResVO> buildTree(List<RouterTreeResVO> treeNodes, Long parentId) {
+        List<RouterTreeResVO> trees = new ArrayList<>();
+        for (RouterTreeResVO treeNode : treeNodes) {
             if (treeNode.getParentId().equals(parentId)) {
                 treeNode.setChildren(buildTree(treeNodes, treeNode.getId()));
                 trees.add(treeNode);
