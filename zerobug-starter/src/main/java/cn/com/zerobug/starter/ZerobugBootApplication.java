@@ -1,6 +1,6 @@
 package cn.com.zerobug.starter;
 
-import cn.com.zerobug.common.base.NuclearProperties;
+import cn.com.zerobug.common.base.ZerobugProperties;
 import cn.com.zerobug.common.exception.GeneralException;
 import cn.com.zerobug.module.impl.auth.AuthApplication;
 import cn.com.zerobug.module.impl.system.SystemApplication;
@@ -32,7 +32,7 @@ public class ZerobugBootApplication {
 
     private static void bannerPrint(ConfigurableApplicationContext applicationContext) {
         try {
-            NuclearProperties properties     = applicationContext.getBean(NuclearProperties.class);
+            ZerobugProperties properties     = applicationContext.getBean(ZerobugProperties.class);
             String            profilesActive = applicationContext.getEnvironment().getProperty("spring.profiles.active");
             String            hostAddress    = InetAddress.getLocalHost().getHostAddress();
             String            port           = applicationContext.getEnvironment().getProperty("server.port");
