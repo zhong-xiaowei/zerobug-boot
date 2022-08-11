@@ -1,6 +1,6 @@
 package cn.com.zerobug.module.impl.auth.service;
 
-import cn.com.zerobug.component.security.model.AuthenticatedUser;
+import cn.com.zerobug.component.ss.model.AuthenticatedUser;
 import cn.com.zerobug.module.impl.auth.domain.vo.req.LoginActionReqVO;
 import cn.com.zerobug.module.impl.auth.domain.vo.res.LoginResultResVO;
 

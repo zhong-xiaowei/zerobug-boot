@@ -1,6 +1,6 @@
 package cn.com.zerobug.module.impl.auth.framework.security.config;
 
-import cn.com.zerobug.component.security.config.customizer.AbstractAuthorizeRequestsCustomizer;
+import cn.com.zerobug.component.ss.config.customizer.AbstractAuthorizeRequestsCustomizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.stereotype.Component;

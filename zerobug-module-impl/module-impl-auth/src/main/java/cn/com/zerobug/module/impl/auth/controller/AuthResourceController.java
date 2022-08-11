@@ -3,7 +3,7 @@ package cn.com.zerobug.module.impl.auth.controller;
 import cn.com.zerobug.common.base.api.ApiResult;
 import cn.com.zerobug.module.impl.auth.domain.vo.res.SysUserInfoResVO;
 import cn.com.zerobug.module.impl.auth.service.IAuthResourceService;
-import cn.com.zerobug.component.security.utils.SecurityContextUtils;
+import cn.com.zerobug.component.ss.utils.SecurityContextUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

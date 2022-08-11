@@ -6,7 +6,7 @@ import cn.com.zerobug.common.base.api.PageQuery;
 import cn.com.zerobug.common.base.api.PageResult;
 import cn.com.zerobug.common.base.dataobject.BaseDO;
 import cn.com.zerobug.common.base.dataobject.TreeNodeDO;
-import cn.com.zerobug.component.security.utils.SecurityContextUtils;
+import cn.com.zerobug.component.ss.utils.SecurityContextUtils;
 import cn.com.zerobug.module.impl.system.domain.dataobject.SysMenuDO;
 import cn.com.zerobug.module.impl.system.domain.vo.res.RouterTreeResVO;
 import cn.com.zerobug.module.impl.system.manager.convert.SysMenuConvert;

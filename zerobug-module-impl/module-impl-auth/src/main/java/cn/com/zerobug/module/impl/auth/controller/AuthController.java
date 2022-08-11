@@ -4,7 +4,7 @@ import cn.com.zerobug.common.base.api.ApiResult;
 import cn.com.zerobug.module.impl.auth.domain.vo.req.LoginActionReqVO;
 import cn.com.zerobug.module.impl.auth.domain.vo.res.LoginResultResVO;
 import cn.com.zerobug.module.impl.auth.service.IAuthService;
-import cn.com.zerobug.component.security.model.AuthenticatedUser;
+import cn.com.zerobug.component.ss.model.AuthenticatedUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;

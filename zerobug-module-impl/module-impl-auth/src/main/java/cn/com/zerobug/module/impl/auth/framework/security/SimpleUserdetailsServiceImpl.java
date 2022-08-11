@@ -5,7 +5,7 @@ import cn.com.zerobug.module.api.system.api.UserApi;
 import cn.com.zerobug.module.api.system.dto.SysRoleDTO;
 import cn.com.zerobug.module.api.system.dto.SysUserDTO;
 import cn.hutool.core.lang.Assert;
-import cn.com.zerobug.component.security.model.AuthenticatedUser;
+import cn.com.zerobug.component.ss.model.AuthenticatedUser;
 import cn.com.zerobug.module.api.system.api.RoleApi;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.DisabledException;

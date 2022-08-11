@@ -35,7 +35,7 @@
 
         <dependency>
             <groupId>cn.com.zerobug</groupId>
-            <artifactId>component-security-starter</artifactId>
+            <artifactId>component-spring-security-starter</artifactId>
         </dependency>
 
         <dependency>
